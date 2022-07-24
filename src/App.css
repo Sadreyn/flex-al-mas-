@@ -1,0 +1,186 @@
+body {
+  background-color: darkorange;
+}
+
+.main-container {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: wheat;
+  text-align: center;
+}
+
+nav {
+  background-color: bisque;
+  text-align: left;
+}
+
+.a1 {
+  background-color: cadetblue;
+  padding: 10px;
+  margin: 10px;
+}
+
+.a2 {
+  background-color: darkcyan;
+  padding: 10px;
+  margin: 10px;
+}
+
+.boxes-1 {
+  background-color: aquamarine;
+  padding: 5px;
+
+  font-size: 20px;
+  /* text-align özelliği yazıların konumunu ayarlar. center ile merkeze tasıdım.*/
+  text-align: center;
+  /* display:flex:; özelliği ile kutulara flex özelliği verdim. */
+  display: flex;
+  /* column özelliği boxes içerisindeki tüm kutuları dikey olarak hizaladı.
+    column reverse özelliği aşağıdan yukarıya hizalar.
+    row soldan sağa sıralar
+    row reversa sağdan sola sıralar */
+  flex-direction: row;
+  /* flex-wrap özelliği ile sayfa kücültüldüğü zaman otomatik
+  olarak kutucukları bir alt satıra alır. satır büyür ancak görünytü kaybolmaz.
+     -flex-wrap wrap reverse yaparsan sayfa kücüldügünde kutuları alta atmaz. 
+     yukarıdan tasımaya baslar. */
+  flex-wrap: wrap;
+  /* justify-content center komutu ile bu sefer yazıları değil, kutuların kendisini hizalarsın
+      center ile merkeze hizalanır.
+      flex-start flexin basladıgı yere tasır. yani su durumda sola.
+      flex-end ile flexin basladıgı yerin sonuna tasır. yani su durumda sağa
+      space between ile her kutu arasını sabit boşluk bırakır.
+      en solunda ve en sağında boşluk bırakmaz. "margin vermediysen"
+      space around ile sağ ve solunda 1 birimlik boşluk bırakırken kutular arasında 2 birim birakir
+      space evenly ile kutuların sağ ve solu dahil her yerde eşit boşluk birakır. +
+      ********JUSTİFY CONTENT KUTULARA YATAY OLARAK MUDAHALE ETMEYE YARAR*********
+      */
+  justify-content: space-between;
+  /* align-items özelliği kutucukları dikey olarak hizalamaya yarar. daha net görebilmek icin
+  bu noktada box1-1 e 200px box1-2 ye300px yükseklik verdim.
+  bu durumda : 
+  ---->align-items i strech olarak ayarlarsam 1-1 ve 1-2 de yüksekliğe kendim değer verdiğim
+  için değişmeyecak ancak 3-4-5 no lu kutular uzayarak otomatik olarak sayfadaki
+  en uzun konum olarak uzayacaktır. sebebide sayfa boyutunu doldurmasıdır.
+  ---->align-items i baseline olarak ayarlarsam 1-1 ve 1-2 yine değişmeyecek ancak
+  diğer kutular kendi bulunduğu kadar alan harcayacak ve yukarıda sabit kalacaktır. 
+  ---->align-item i center olarak ayarlarsam height verdiğim kutular dısındaki tüm kutular 
+  dikey olarak merkeze alınacaktır.
+  ********ALİGN İTEMS KUTULARA DİKEY OLARAK MUDAHALE ETMEYE YARAR*********
+   */
+  align-items: center;
+
+}
+
+.box1-1 {
+  padding: 5px;
+  margin: 5px;
+  background-color: blueviolet;
+  height: 200px;
+  flex-grow: 1;
+}
+
+.box1-2 {
+  padding: 5px;
+  margin: 5px;
+  background-color: chocolate;
+  height: 300px;
+  flex-grow: 2;
+}
+
+.box1-3 {
+  padding: 5px;
+  margin: 5px;
+  background-color: crimson;
+  flex-grow: 1;
+}
+
+/* align-self özelliği ile tek bir kutuyu sayfa içerisinde istediğin yere konumlandırırsın
+align-item dan tek farkı tamamına değil, kutulardan birine müdahale etmesidir.
+örneğin aynı sekilr box1-4 kutusunu yukarı tasımak istersem ((box1-2 300px + box1-1 200pxiken))
+yapacağım tek şey alignself-flex start olmalıdır. 
+alignself - baseline yine yukarı taşır 
+alignself - center ortalar
+alignself - flex end alta alır.
+*/
+/* order özelliği...
+  başlangıç olarak kutuların tamamı 0 değerinde varsayar...
+  örneğin 1.kutu order 0 dır 2.kutu order 0 dır vs.
+  eğer herhangi bir kutuyu başa taşımak istiyorsan 0 dan kücük bir değer girmen gerekir
+  ve tüm kutular senin girdigin yeni değere göre sıralanır. örneğin -1 gibi.
+  veya aynı şeyi tüm kutulara tek tek numara vererekte yapabilirsin. */
+.box1-4 {
+  padding: 5px;
+  margin: 5px;
+  background-color: darkgoldenrod;
+  align-self: flex-end;
+  flex-grow: 3;
+  order: -1;
+}
+
+/* flex-grow özelliği ile kutucukların konteyner içinde kapladıkları alanları ayarlayabilirsin.
+bunu istersen rakam ile kolayca yapabilirsin.
+örneğin box1- i flex-grow 1
+        box2-yi flex-grow 2
+        box3-ü  flex-grow 1
+        box4-ü  flex-grow 3
+        box5-i  flex-grow 2 yaptım diyelim. bu durumda yatay olarak toplam alan içinde
+        1 değerini verdiklerim 1 birim 
+        2 değerini verdiklerim 2 birim
+        3 değerini verdiklerim 3 birim yer kaplayacaktır. ve buna göre otomatik düzenleyecektir.*/
+.box1-5 {
+  padding: 5px;
+  margin: 5px;
+  background-color: darkgreen;
+  flex-grow: 2;
+}
+
+.boxes-2 {
+  background-color: blanchedalmond;
+  padding: 5px;
+  margin: 5px;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+}
+
+.box2-1 {
+  padding: 5px;
+  margin: 5px;
+  background-color: fuchsia;
+}
+
+.box2-2 {
+  padding: 5px;
+  margin: 5px;
+  background-color: deepskyblue;
+}
+
+.box2-3 {
+  padding: 5px;
+  margin: 5px;
+  background-color: khaki;
+}
+
+.box2-4 {
+  padding: 5px;
+  margin: 5px;
+  background-color: plum;
+}
+
+.box2-5 {
+  padding: 5px;
+  margin: 5px;
+  background-color: salmon;
+}
+
+.resim {
+  background-color: azure;
+}
+
+footer {
+  background-color: brown;
+}
